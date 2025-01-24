@@ -1,6 +1,7 @@
 const startButton = document.querySelector(".start-game-btn");
 const resetButton = document.querySelector(".reset-game-btn");
 const gameButtonsDiv = document.querySelector(".game-buttons");
+const buttons = document.querySelectorAll(".game-btn");
 const resultDiv = document.querySelector(".result");
 
 function startGame() {
@@ -16,6 +17,10 @@ function GameStart(playerChoice) {
   const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
   let result;
+
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].setAttribute("disabled", true);
+  }
 
   if (playerChoice === computerChoice) {
     result = "It's a Draw!";
